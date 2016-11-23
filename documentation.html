@@ -1,0 +1,191 @@
+<html>
+   <head></head>
+   <body>
+      <style>
+         .appspicket-logo img{
+         display:block;
+         margin:0 auto;
+         }
+         .appspicket-header h2{
+         text-align:center;
+         }
+         .sdk-code{
+         font-family: Consolas, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif;
+         margin-bottom: 10px;
+         overflow: auto;
+         width: auto;
+         padding: 5px;
+         background-color: #eee;
+         width: 650px!ie7;
+         padding-bottom: 20px!ie7;
+         max-height: 600px;
+         }
+      </style>
+      <div class="appspicket-main">
+         <div class="appspicket-logo-div">
+            <a class="appspicket-logo"  href="http://appspicket.com/"> 
+            <img  src="http://web.appspicket.com/wp-content/uploads/2016/10/AppsPicketLogo-2.png" alt="" width="212px" height="109px" /> 
+            </a>
+         </div>
+         <div class="appspicket-header">
+            <h2><b>AppsPicket I2FA© Javascript SDK Documentation</b></h2>
+         </div>
+         <div class="appspicket-container">
+            <div class="appspicket-para" id="introduction">
+               <h3><b>Introduction:</b></h3>
+               <p>In this guide, we will help you integrate the authentication of users of your Javascript/Web application with our  Integrated Two Factor Authentication (I2FA) technology. AppsPicket's I2FA© library for Web Applications is based on a patent-pending technology developed to strengthen the user authentication process. By incorporating I2FA in your Web App, you can ensure that both the user password and the user device are checked each time the user logs into the App. Traditionally, it is done in a cumbersome manner using OTPs or Authenticator Apps. Thus, you can ensure two-factor authentication of your user without troubling the user.</p>
+            </div>
+            <div class="appspicket-para" id="prerequisites">
+               <h3><b>Pre-requisites:</b></h3>
+               <p>To get started, you need:</p>
+               <div>
+                  <ol>
+                     <li>Get your unique I2FA URL from AppsPicket team that integrates with your user database or directory. We have connectors for most authentication setups.</li>
+                     <li>Working Web Application development environment with Javascript SDK.</li>
+                     <li>Web Application project you wish to integrate.</li>
+                  </ol>
+               </div>
+            </div>
+            <div class="appspicket-para" id="unique-i2fa">
+               <h3><b>Get your unique I2FA URL:</b></h3>
+               <p>AppsPicket team will configure a connector on our cloud based I2FA side that integrates with your user database or directory. We have connectors for most authentication setups. Please email info@appspicket.com for more details. Once the connector is configured, the unique URL for your application will be generated and provided to you. </p>
+            </div>
+            <div class="appspicket-para" id="installation">
+               <h3><b>Installation:</b></h3>
+               <p>Assuming you have either included the files directly or downloaded the dependencies (jQuery, jQueryValidate, BigInteger, MD5, jQueryCookie, appspicket) from the below url's, let us get the SDK in.</p>
+               <div>
+                  <ol>
+                  <li>
+                     Include the following javascripts dependencies into the page you are trying to use the Javascript SDK:
+                     <br>
+                    <pre class="sdk-code">1. "https://code.jquery.com/jquery-1.10.2.min.js"</pre>
+                     <pre class="sdk-code">2. "http://ajax.aspnetcdn.com/ajax/jquery.validate/1.15.0/jquery.validate.min.js"</pre>
+                     <pre class="sdk-code">3. "http://peterolson.github.com/BigInteger.js/BigInteger.min.js"</pre>
+                     <pre class="sdk-code">4. "https://cdnjs.cloudflare.com/ajax/libs/blueimp-md5/2.5.0/js/md5.min.js"</pre>
+                     <pre class="sdk-code">5. "https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"</pre>
+                     <pre class="sdk-code">6. "path_to_file/appsicket.js"</pre>
+                  </li>
+               </div>
+            </div>
+            <div class="appspicket-para" id="use-cases">
+               <h3><b>Use Cases:</b></h3>
+               <p>Now we are ready to write the integration code. There are two use cases:</p>
+               <div>
+                  <ol>
+                     <li><b>1. Registration - </b>When user logs signs up or registers for stronger authentication using I2FA.</li>
+                     <li><b>2. Confirm OTP - </b>When user confirm the sign up with help of OTP.</li>
+                     <li><b>3. Login - </b>When user logs in any subsequent time.</li>
+                  </ol>
+               </div>
+            </div>
+            <div class="appspicket-para" id="registration">
+               <h3><b>Registration:</b></h3>
+               <p>When the user registers for I2FA authentication, the user is authenticated against your user directory using the provided username and password, and any other out of band authentication (like email or phone) mechanism, and thereafter cryptographic key material is generated to authenticate user in future sessions. This is achieved using the following code.</p>
+               <div>
+                  <ol>
+                     <li>
+                        Create I2FA service instance. For this your  Unique I2FA_URL needs to be passed.
+                        <br>
+<pre class="sdk-code">
+// Unique I2FA_URL provided by Appspicket that integrates with your user database or directory
+var appspicket = new AppsPicket(I2FA_URL);
+</pre>
+                     </li>
+                     <li>
+                        Now we are ready to call the service to register. This will generate the cryptographic key material that will be used to authenticate the user going forward. Since the service is called asynchronously, a response handler is needed to handle success and failures results i.e. I2FAHandler and it needs to be passed with the call. 
+                        <br>
+<pre class="sdk-code">
+var data  = { 
+	uname : "", // String containing username
+	password : "", // String containing password
+	mobilenumber : "", // String containing mobile number
+	email : ""
+}
+appspicket.signUp( data , function onSuccess(response){
+	 // it handles the success result
+}, 
+function onFailure(error){
+	// It handles the failure result.
+    // 10, AuthenticationException - thrown when User is not authenticated
+    // 15, InvalidEmailException - thrown when user failed email check
+    // 25, InvalidMobileException - throws when user failed mobile check
+	// 35, EmailMobileRequiredException - One of email or mobile input is required
+});
+</pre>
+                     </li>
+                  </ol>
+               </div>
+            </div>
+            
+   			<div class="appspicket-para" id="confirm-otp">
+          		<h3><b>Confirm OTP:</b></h3>
+               <p>When user has registered for I2FA authentication, then user needs to be activated using the OTP sent to the provided email / mobile. This is achieved using the following code.</p>
+               <div>
+                  <ol>
+                     <li>
+                         Create I2FA service instance. For this your  Unique I2FA_URL needs to be passed.
+                        <br>
+<pre class="sdk-code">
+// Unique I2FA_URL provided by Appspicket that integrates with your user database or directory
+var appspicket = new AppsPicket(I2FA_URL);
+</pre>
+                     </li>
+                     <li>
+                        Now we are ready to call the service to confirm OTP. This will generate the cryptographic key material that will be used to authenticate the user going forward. Since the service is called asynchronously, a response handler is needed to handle success and failures results i.e. I2FAHandler and it needs to be passed with the call. 
+                        <br>
+<pre class="sdk-code">
+var otp = ""; // String containing otp
+
+appspicket.confirmOtp( otp , function onSuccess(response){
+	 // it handles the success result
+}, 
+function onFailure(error){
+	// It handles the failure result.
+});
+</pre>
+                     </li>
+                  </ol>
+               </div>
+ 
+			</div>
+            <div class="appspicket-para" id="authentication">
+               <h3><b>Authentication:</b></h3>
+               <p>After the first time, the password is never sent again over the network for authentication. The I2FA cloud performs the authentication based on the cryptographic key material (generated using registration) as well as the user provided password. The SDK performs this transparently for you and here are the steps for the same:</p>
+               <div>
+                  <ol>
+                     <li>
+                        Create I2FA service instance. For this your activity context object needs to be passed.
+                        <br>
+<pre class="sdk-code">
+// Unique I2FA_URL provided by Appspicket that integrates with your user database or directory
+var appspicket = new AppsPicket(I2FA_URL);
+</pre>
+                     </li>
+                     <li>
+                        Now we are ready call the service to login. This will run the authentication protocol between the user device and our I2FA server. Since the service is called asynchronously, a response handler is needed to handle success and failures results i.e. I2FAHandler and it needs to be passed with the call.
+                        <br>
+<pre class="sdk-code">
+var data  = { 
+	uname : "", // String containing username
+	password : "", // String containing password
+}
+appspicket.login( data , function onSuccess(response){
+	 // it handles the success result
+}, 
+function onFailure(error){
+	// It handles the failure result.
+	 // 20, InvalidKeyException - thrown when no valid registration data found on the user device
+});
+</pre>
+                     </li>
+                  </ol>
+                </div>
+            </div>
+            <div class="appspicket-para" id="source-code">
+               <h3><b>Source Code:</b></h3>
+               <p>Download the code for a sample Android App <a href="http://appspicket.com/wp-content/uploads/2016/09/AndroidSampleApp.zip">here</a></p>
+            </div>
+         </div>
+      </div>
+   </body>
+</html>
