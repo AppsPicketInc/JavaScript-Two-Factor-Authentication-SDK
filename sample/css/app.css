@@ -1,1 +1,372 @@
+#login .ui-input-text, #login .ui-input-search{
+    margin:0px;
+    border: 0;
+    width: 100%;
+}
 
+#login .form--login label{
+	margin-bottom: 0px;
+	text-shadow: none;
+}
+
+#login  .form--login input[type="text"], #login  .form--login input[type="password"]{
+	padding: 20px 16px;
+	color: #fff;
+	padding-top: 19px;
+    padding-bottom: 19px;
+    text-shadow: none;
+}
+
+.form--login button.ui-btn, .form--login button.ui-btn:hover, .form--login button.ui-btn:focus,
+#apps button.ui-btn, #apps button.ui-btn:hover, #apps button.ui-btn:focus,
+#login button.ui-btn, #login button.ui-btn:hover, #login button.ui-btn:focus {
+    background-color: #4e5d4d;
+    color: #eee;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-shadow: none;
+    padding: 1rem;
+    border-radius: 0.25rem;
+    margin: 0;
+}
+
+.ui-overlay-a, .ui-page-theme-a, .ui-page-theme-a .ui-panel-wrapper{
+	text-shadow: none;
+	background-size: cover;
+}
+
+.ui-page-theme-a  .ui-header, .ui-page-theme-a .ui-footer{
+	background: #80a165;
+	text-shadow: none;
+    color: #fff;
+    border: 0;
+}
+
+.grid__container {
+    margin: 0 auto;
+    max-width: 27rem;
+    width: 90%;
+    background-color: lightgray;
+    padding: 20px 40px;
+    border: 1px solid #ddd;
+}
+
+.grid__container h3{
+	color: #000;
+}
+
+.logo{
+	text-align: center;
+    padding: 5px 0px;
+}
+
+.logo img{
+	width: 85%;
+}
+
+#login .form--login .form-error .error {
+	background: none;
+    color: red;
+    padding: 0px 15px;
+    min-width: 65px;
+    text-align: left;
+}
+
+.grid__container #list-apps, .grid__container #list-apps{
+	margin: 20px 0px;
+}
+
+#loginform .form-error{
+	margin: 15px 0px;
+}
+#loginform .form__field {
+	margin-bottom: 0;
+}
+
+#loginform #btn-login{
+	margin-bottom: 15px;
+}
+
+#loginform #message{
+	margin-top: 10px;
+	color: red;
+}
+
+#loginform #site_link{
+	padding: 0px 0px 20px 25px;
+}
+
+#loginform #site_link a{
+	text-decoration: none;
+}
+
+
+#loginform #btn-signup,#loginform #confirm_otp{
+    background-color: #4e5d4d;
+    margin-top: 20px;
+}
+
+#apps #additional_apps{
+	background-color: #80a165;
+}
+
+.login-button div.ui-btn , .login-button div.ui-btn:hover{
+	background-color: #4e5d4d;
+	color: #eee;
+	text-shadow: none;
+}
+
+#apps .grid__container{
+	padding: 25px;
+}
+
+.signupbutton_container{
+	margin: 0 auto;
+	max-width: 27rem;
+	width: 90%;
+	padding-top: 20px;
+}
+
+.help_link{
+	text-align: right;
+	padding-top: 15px;
+}
+
+.help_link a{
+	text-decoration: none;
+}
+
+#apps #apps-message{
+	margin-bottom: 20px;
+}
+
+.help_link #apps_logout{
+	float: left;
+}
+
+/* A bit custom styling */
+.my-apps-page .ui-listview li .ui-btn p {
+    color: #fff;
+    height: 17px;
+}
+.my-apps-page .ui-listview li .ui-btn .ui-li-aside {
+    color: #eee;
+}
+
+/* First breakpoint is 48em (768px). 3 column layout. Tiles 250x250 pixels incl. margin at the breakpoint. */
+@media ( min-width: 48em ) {
+    .my-apps-page .ui-listview {
+        max-width: 43em; /* 1000px */
+        margin: 0 auto;
+    }
+    .my-apps-page .ui-listview li .ui-btn p {
+    	display: none;
+    }
+    
+    .my-apps-page .ui-content {
+        padding: .5625em; /* 9px */
+    }
+    .my-apps-page .ui-listview li {
+        float: left;
+        width: 30.9333%; /* 33.3333% incl. 2 x 1.2% margin */
+        height: 14.5em; /* 232p */
+        margin: .5625em 1.2%;
+    }
+    .my-apps-page .ui-listview li > .ui-btn {
+        -webkit-box-sizing: border-box; /* include padding and border in height so we can set it to 100% */
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+        height: 100%;
+    }
+    .my-apps-page .ui-listview li.ui-li-has-thumb .ui-li-thumb {
+        height: auto; /* To keep aspect ratio. */
+        max-width: 100%;
+        max-height: none;
+        padding: 10px;
+    }
+    /* Make all list items and anchors inherit the border-radius from the UL. */
+    .my-apps-page .ui-listview li,
+    .my-apps-page .ui-listview li .ui-btn,
+    .my-apps-page .ui-listview .ui-li-thumb {
+        -webkit-border-radius: inherit;
+        border-radius: inherit;
+    }
+    /* Hide the icon */
+    .my-apps-page .ui-listview .ui-btn-icon-right:after {
+        display: none;
+    }
+    /* Make text wrap. */
+    .my-apps-page .ui-listview h2,
+    .my-apps-page .ui-listview p {
+        white-space: normal;
+        overflow: visible;
+        position: absolute;
+        left: 0;
+        right: 0;
+    }
+    /* Text position */
+    .my-apps-page .ui-listview h2 {
+        font-size: 1.25em;
+        margin: 0;
+        padding: .125em 1em;
+        bottom: 50%;
+    }
+    .my-apps-page .ui-listview p {
+        font-size: 1em;
+        margin: 0;
+        padding: 0 1.25em;
+        min-height: 50%;
+        bottom: 0;
+    }
+    /* Semi transparent background and different position if there is a thumb. The button has overflow hidden so we don't need to set border-radius. */
+    .ui-listview .ui-li-has-thumb h2,
+    .ui-listview .ui-li-has-thumb p {
+        background: #80a165;
+        color: #fff;
+        text-shadow: none;
+    }
+    .ui-listview .ui-li-has-thumb h2 {
+        bottom: 0%;
+        font-weight: normal;
+        font-size: 17px;
+    }
+    .ui-listview .ui-li-has-thumb p {
+        min-height: 35%;
+    }
+    /* ui-li-aside has class .ui-li-desc as well so we have to override some things. */
+    .my-apps-page .ui-listview .ui-li-aside {
+        padding: .125em .625em;
+        width: auto;
+        min-height: 0;
+        top: 0;
+        left: auto;
+        bottom: auto;
+        /* Custom styling. */
+        background: #990099;
+        background: rgba(153,0,153,.85);
+        -webkit-border-top-right-radius: inherit;
+        border-top-right-radius: inherit;
+        -webkit-border-bottom-left-radius: inherit;
+        border-bottom-left-radius: inherit;
+        -webkit-border-bottom-right-radius: 0;
+        border-bottom-right-radius: 0;
+    }
+    /* If you want to add shadow, don't kill the focus style. */
+    .my-apps-page .ui-listview li {
+        -moz-box-shadow: 0px 0px 9px #80a165;
+        -webkit-box-shadow: 0px 0px 9px #80a165;
+        box-shadow: 0px 0px 9px #80a165;
+    }
+    /* Images mask the hover bg color so we give desktop users feedback by applying the focus style on hover as well. */
+    .my-apps-page .ui-listview li > .ui-btn:hover {
+        -moz-box-shadow: 0px 0px 12px #33ccff;
+        -webkit-box-shadow: 0px 0px 12px #33ccff;
+        box-shadow: 0px 0px 12px #33ccff;
+    }
+    /* Animate focus and hover style, and resizing. */
+    .my-apps-page .ui-listview li,
+    .my-apps-page .ui-listview .ui-btn {
+        -webkit-transition: all 500ms ease;
+        -moz-transition: all 500ms ease;
+        -o-transition: all 500ms ease;
+        -ms-transition: all 500ms ease;
+        transition: all 500ms ease;
+    }
+}
+/* Second breakpoint is 63.75em (1020px). 4 column layout. Tiles will be 250x250 pixels incl. margin again at the breakpoint. */
+@media ( min-width: 63.75em ) {
+   
+     .my-apps-page .ui-listview li .ui-btn p {
+    	display: none;
+    }
+    
+    .my-apps-page .ui-content {
+        padding: .625em; /* 10px */
+    }
+    /* Set a max-width for the last breakpoint to prevent too much stretching on large screens.
+    By setting the max-width equal to the breakpoint width minus padding we keep square tiles. */
+    .my-apps-page .ui-listview {
+        max-width: 62.5em; /* 1000px */
+        margin: 0 auto;
+    }
+    /* Because of the 1000px max-width the width will always be 230px (and margin left/right 10px),
+    but we stick to percentage values for demo purposes. */
+    .my-apps-page .ui-listview li {
+        width: 23%;
+        height: 230px;
+        margin: .625em 1%;
+    }
+    #apps .ui-listview .ui-li-has-thumb h2 {
+		text-shadow: none;
+		color: #fff;
+	}
+	
+}
+
+#apps .ui-content{
+	padding-top: 3%;
+}
+.app_form{
+	display:none;
+}
+.ui-page-theme-a a.app_setting_link{
+	color: #fff;
+	font-weight: normal;
+    float: right;
+    width: 1em;
+    height: 1em;
+    border: none;
+    margin: 0;
+    margin-top: 5px;
+}
+.ui-page-theme-a a.app_link{
+	color: #fff;
+	font-weight: normal;
+}
+.app_link_heading{
+	padding-top: 0;
+	padding-bottom: 0;
+	color: #333333;
+}
+
+#site_link,.login-button{
+	text-align: center;
+}
+    
+.login-button{
+	display:none
+}
+
+#confirm_otp{
+	display:none;
+}
+
+@media ( max-width: 768px ) {
+	.ui-listview .ui-li-has-thumb>.ui-btn>img:first-child, .ui-listview .ui-li-has-thumb .ui-li-thumb{
+		max-width: 58px;
+	}
+	.ui-listview .ui-li-has-thumb .app_setting_div{
+		position: absolute;
+    	top: 12px;
+    	right: 150px;
+	}
+	.ui-listview .ui-li-has-thumb .app_setting_div .ui-btn.app_setting_link{
+		width: 35px;
+    	height: 35px;
+    	background-color: #ADADAD;	
+	}
+}
+
+
+.app_setting_div{
+	position: absolute;
+    top: 0px;
+    right: 0px;
+}
+.my-apps-page .ui-listview li .ui-btn.app_setting_link{
+	width: 30px;
+    height: 30px;
+    background: transparent;
+    border-width: 0;
+    margin-top: 0;
+}
