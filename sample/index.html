@@ -1,1 +1,99 @@
+<!doctype html>
+<html>
+	<head>
+		<title>AppsPicket - Login only once !</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+		<link rel="stylesheet" type="text/css" href="css/style.css">
+		<link rel="stylesheet" type="text/css" href="css/app.css">
+		<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+		<script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+		<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.15.0/jquery.validate.min.js"></script>
+		<script src="http://peterolson.github.com/BigInteger.js/BigInteger.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/blueimp-md5/2.5.0/js/md5.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+		<script src="../appspicket.min.js"></script>
+		<script src="js/app.js"></script>
+	</head>
+	<body class="align">
+		<div id="login" data-role="page">
+			<div data-role="header">
+				<h1>AppsPicket</h1>
+			</div><!-- /header --> 
+ 
+			<div data-role="content">
+				<div class="site__container">
+					<form action="?" method="post" name="f" id="loginform" data-ajax="false">
+						<div class="grid__container form form--login">
+							<div class="logo">
+								<img src="img/apppicket-logo.png"/>
+							</div>
+							
+							<div id="site_link">Powered By <a href="http://appspicket.com/" target="_blank">AppsPicket</a></div>
+							<div class="form__field">
+								<label class="fontawesome-user" for="username"><i class="fa fa-user fa-2x"></i></label>
+								<input type="text" name="username" id="username">
+							</div>
+							<div class="form-error" ></div>
+							
+							<div class="form__field">
+								<label class="fontawesome-lock" for="password"><i class="fa fa-lock fa-2x"></i></label>
+								<input type="password" name="password" id="password">
+							</div>
+							<div class="form-error" ></div>
+					
+							<div class="form__field">
+								<label class="fontawesome-envelope-o" for="email"><i class="fa fa-envelope-o fa-2x"></i></label>
+								<input type="text" name="email" id="email">
+							</div>
+							<div class="form-error" ></div>
+					
+							<div class="form__field">
+								<label class="fontawesome-mobile" for="mobileno"><i class="fa fa-mobile fa-2x"></i></label>
+								<input type="text" name="mobileno" id="mobileno">
+							</div>
+							<div class="form-error" ></div>
+					
+							<div class="form__field otp_field">
+							</div>
+							<div class="form-error" ></div>
+							
+							<div class="login-button">
+								<input onclick="this.value='Processing...';" type="submit" class="ui-btn" id="regularsubmit" value="Login" />
+							</div>
+							
+							<div>
+								<button id="btn-login" class="ui-btn">Login</button>
+								<button id="confirm_otp" class="ui-btn">Confirm Otp</button>
+							</div>
+					
+							<div id="message"></div>
+						</div>
+						<div class="signupbutton_container">
+							<span>If this is not registered enterprise device, Please sign-up with you company credentials here:</span>
+							<button id="btn-signup" class="ui-btn">Sign Up</button>
+						</div>
+					</form>
+				</div>
+			</div><!-- /content -->
+ 
+			<div data-role="footer" data-position="fixed">
+				<h4>Copyright@2015 AppsPicket Inc.</h4>
+			</div><!-- /footer -->
+		</div><!-- /page -->
 
+		<div id="apps" data-role="page"  class="my-apps-page">
+			<div data-role="header">
+				<h1>Choose a service</h1>
+					<a rel="external" id="logout" href="index.html" data-icon="power" data-role="button" data-iconpos="notext" class="ui-btn-right">Logout</a>
+			</div><!-- /header --> 
+			<div data-role="main" class="ui-content">
+			
+			</div>
+			
+			<div data-role="footer" data-position="fixed">
+				<h4>Copyright@2015 AppsPicket Inc.</h4>
+			</div><!-- /footer -->
+		</div><!-- /page -->
+	</body>
+</html>
