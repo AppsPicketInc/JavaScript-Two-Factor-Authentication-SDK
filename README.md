@@ -1,0 +1,2 @@
+# JavaScript-Two-Factor-Authentication-SDK
+Two Factor Authentiction for Javascript without pass-codes, OTPs, Mobile Apps or Hardware Tokens. Based on Public-key cryptography, it checks what the user knows (password or PIN) and what the user has (phone, tablet or laptop), in one STEP. No more looking for your phone or hardware tokens, while logging in!  Bring the security of Two Factor Authentication with the ease of passwords to your Web Apps.
